@@ -55,7 +55,7 @@ export default function Register(props) {
   };
 
   return (
-    <div className="container text-center form-signin w-100 m-auto">
+    <div className="container form-signin w-100 m-auto">
       <Form onSubmit={handleSubmit}>
         <h1 className="h3 mb-3 fw-normal">Register</h1>
 
@@ -63,14 +63,14 @@ export default function Register(props) {
           <input
             type="text"
             className="form-control"
-            id="nickName"
+            id="registerNickName"
             placeholder="Nick Name"
             maxlength="20"
             value={nickName}
             onChange={handleChange}
             required
           />
-          <label htmlfor="nickName" className="text-muted">
+          <label htmlfor="registerNickName" className="text-muted">
             Nick Name
           </label>
         </div>
@@ -78,14 +78,14 @@ export default function Register(props) {
           <input
             type="email"
             className="form-control"
-            id="email"
+            id="registerEmail"
             placeholder="name@example.com"
             maxlength="40"
             value={email}
             onChange={handleChange}
             required
           />
-          <label htmlfor="email" className="text-muted">
+          <label htmlfor="registerEmail" className="text-muted">
             Email address
           </label>
         </div>
@@ -93,14 +93,14 @@ export default function Register(props) {
           <input
             type="password"
             className="form-control"
-            id="password"
+            id="registerPassword"
             placeholder="Password"
             maxlength="20"
             value={password}
             onChange={handleChange}
             required
           />
-          <label htmlfor="password" className="text-muted">
+          <label htmlfor="registerPassword" className="text-muted">
             Password
           </label>
         </div>
