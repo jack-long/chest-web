@@ -3,12 +3,14 @@ import { useState } from "react";
 import "./App.css";
 import Demo from "./components/demo";
 import Header from "./components/Header";
-import ItemList from "./components/ItemList";
-import NewItem from "./components/NewItem";
+import ItemList from "./views/ItemList";
+import Login from "./views/Login";
+import NewItem from "./views/NewItem";
+import Register from "./views/Register";
 
 function Page(props) {
   const { children, index, page } = props;
-  return <div hidden={index != page}>{children}</div>;
+  return <div hidden={index !== page}>{children}</div>;
 }
 
 function App() {
@@ -23,6 +25,12 @@ function App() {
       </Page>
       <Page index={1} page={page}>
         <ItemList />
+      </Page>
+      <Page index={2} page={page}>
+        <Register setPage={setPage} />
+      </Page>
+      <Page index={3} page={page}>
+        <Login setPage={setPage} />
       </Page>
     </div>
   );
