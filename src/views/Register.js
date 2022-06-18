@@ -37,20 +37,20 @@ export default function Register(props) {
 
   const handleChange = (e) => {
     switch (e.target.id) {
-      case "nickName":
+      case "registerNickName":
         setNickName(e.target.value);
         break;
-      case "email":
+      case "registerEmail":
         setEmail(e.target.value);
         break;
-      case "password":
+      case "registerPassword":
         setPassword(e.target.value);
         break;
       case "confirmPassword":
         setConfirmPassword(e.target.value);
         break;
       default:
-        alert("Error, no match " + e.target.id);
+        alert("Error, no element with id " + e.target.id);
     }
   };
 
