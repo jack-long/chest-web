@@ -2,17 +2,34 @@ import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 
 export default function Login(props) {
-  const [email, setEmail] = useState(null);
-  const [password, setPassword] = useState(null);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const LOGIN_API = "/api/user/login";
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert("login");
+
+    const data = { email: email, password: password };
+    fetch(LOGIN_API, {
+      method: "POST",
+      mode: "cors",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    })
+      .then((response) => {
+        if (response.ok) {
+          props.setPage(1);
+        } else {
+          response.text().then((text) => alert("Error!\n" + text));
+        }
+      })
+      .catch((error) => {
+        alert(error);
+      });
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit} autoComplete="true">
       <h1 className="h3 mb-3 fw-normal">Please log in</h1>
 
       <div className="form-floating mb-1">
@@ -25,7 +42,7 @@ export default function Login(props) {
           placeholder="name@example.com"
           required
         />
-        <label htmlfor="loginEmail" className="text-muted">
+        <label htmlFor="loginEmail" className="text-muted">
           Email address
         </label>
       </div>
@@ -39,7 +56,7 @@ export default function Login(props) {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <label htmlfor="loginPassword" className="text-muted">
+        <label htmlFor="loginPassword" className="text-muted">
           Password
         </label>
       </div>

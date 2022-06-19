@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 
 export default function Register(props) {
-  const [nickName, setNickName] = useState(null);
-  const [email, setEmail] = useState(null);
-  const [password, setPassword] = useState(null);
-  const [confirmPassword, setConfirmPassword] = useState(null);
+  const [nickName, setNickName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const API = "/api/user/register";
 
   const handleSubmit = (e) => {
@@ -13,7 +13,6 @@ export default function Register(props) {
     if (confirmPassword !== password) {
       alert("Password does not match!");
     } else {
-      console.log(nickName + "\n" + email + "\n" + password);
       const data = { nickName: nickName, email: email, password: password };
       fetch(API, {
         method: "POST",
@@ -65,12 +64,12 @@ export default function Register(props) {
             className="form-control"
             id="registerNickName"
             placeholder="Nick Name"
-            maxlength="20"
+            maxLength="20"
             value={nickName}
             onChange={handleChange}
             required
           />
-          <label htmlfor="registerNickName" className="text-muted">
+          <label htmlFor="registerNickName" className="text-muted">
             Nick Name
           </label>
         </div>
@@ -80,12 +79,12 @@ export default function Register(props) {
             className="form-control"
             id="registerEmail"
             placeholder="name@example.com"
-            maxlength="40"
+            maxLength="40"
             value={email}
             onChange={handleChange}
             required
           />
-          <label htmlfor="registerEmail" className="text-muted">
+          <label htmlFor="registerEmail" className="text-muted">
             Email address
           </label>
         </div>
@@ -95,12 +94,12 @@ export default function Register(props) {
             className="form-control"
             id="registerPassword"
             placeholder="Password"
-            maxlength="20"
+            maxLength="20"
             value={password}
             onChange={handleChange}
             required
           />
-          <label htmlfor="registerPassword" className="text-muted">
+          <label htmlFor="registerPassword" className="text-muted">
             Password
           </label>
         </div>
@@ -110,12 +109,12 @@ export default function Register(props) {
             className="form-control"
             id="confirmPassword"
             placeholder="Confirm Password"
-            maxlength="20"
+            maxLength="20"
             value={confirmPassword}
             onChange={handleChange}
             required
           />
-          <label htmlfor="confirmPassword" className="text-muted">
+          <label htmlFor="confirmPassword" className="text-muted">
             Confirm Password
           </label>
         </div>
